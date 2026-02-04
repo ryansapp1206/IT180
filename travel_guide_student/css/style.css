@@ -1,0 +1,82 @@
+/* Clean, simple styling for the travel guide */
+:root{
+	--bg:#fbfdfd;
+	--card:#ffffff;
+	--brand:#2b7a78;
+	--accent:#f08a5d;
+	--muted:#6b6b6b;
+	--text:#222222;
+	--radius:10px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+	margin:0;
+	font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+	color:var(--text);
+	background:linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	line-height:1.5;
+}
+
+.container{max-width:1000px;margin:0 auto;padding:1.25rem}
+
+.site-header{background:transparent;padding:0.5rem 0}
+.site-header .container{display:flex;align-items:center;gap:1rem}
+.site-title{margin:0;font-size:1.25rem;color:var(--brand);font-weight:700}
+/* Ensure header titles are consistent across pages */
+.site-header h1{margin:0;font-size:1.25rem;color:var(--brand);font-weight:700}
+
+.main-nav{margin-left:auto;display:flex;gap:1rem;align-items:center}
+.main-nav a{color:var(--muted);text-decoration:none;padding:0.35rem 0.5rem;border-radius:6px;transition:all .18s ease}
+.main-nav a:hover{color:var(--text);background:rgba(43,122,120,0.06)}
+.main-nav a.active{color:var(--brand);font-weight:600}
+
+.hero{padding:2.25rem 0 1.5rem}
+.hero h2{margin:.25rem 0 0;font-size:1.6rem}
+.hero p{margin:.5rem 0 0;color:var(--muted)}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
+.card{background:var(--card);border-radius:var(--radius);padding:1.25rem;border:1px solid rgba(0,0,0,0.04);box-shadow:0 6px 18px rgba(15,15,15,0.03);transition:transform .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(15,15,15,0.06)}
+.card h3{margin:0 0 .4rem}
+.card p{margin:0;color:var(--muted)}
+
+.btn{display:inline-block;margin-top:0.75rem;padding:0.5rem 0.9rem;background:var(--brand);color:#fff;border-radius:8px;text-decoration:none;font-weight:600}
+.btn.secondary{background:transparent;color:var(--brand);border:1px solid rgba(43,122,120,0.12)}
+
+.site-footer{border-top:1px solid rgba(0,0,0,0.04);padding:1.25rem 0;margin-top:2.5rem;color:var(--muted);text-align:center}
+
+/* Utilities */
+.container--narrow{max-width:760px}
+
+@media (max-width:760px){
+	.main-nav{display:flex;gap:.6rem}
+	.hero h2{font-size:1.25rem}
+	.container{padding:.9rem}
+}
+
+/* Page banner (large, simple hero with overlay) */
+.page-banner{
+	width:100%;
+	min-height:220px;
+	display:block;
+	background-position:center center;
+	background-size:cover;
+
+	margin:0 0 1rem;
+	position:relative;
+	overflow:hidden;
+}
+.page-banner::after{
+	content:"";
+	position:absolute;inset:0;
+	background:linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.12) 40%, rgba(0,0,0,0.22) 100%);
+}
+.page-banner .banner-inner{position:relative;z-index:2;padding:2.25rem 1.25rem;color:#fff}
+.page-banner h1,.page-banner h2{margin:0;padding:0;color:#fff;text-shadow:0 6px 18px rgba(0,0,0,0.25)}
+.page-banner.small{min-height:140px}
+
+
