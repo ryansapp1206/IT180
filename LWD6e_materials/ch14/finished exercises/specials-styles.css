@@ -1,0 +1,220 @@
+
+/* FORM STYLES */
+
+[size] {
+  background-color: peachpuff;
+}
+[name="email"] {
+  background-color: lightsalmon;
+}
+[name$="-name"] {
+  background-color: salmon;
+}
+
+form {
+  width: 30em;
+  margin: .5em auto;
+  padding: 2em;
+  background-color: darkgreen;
+}
+input {
+  width: 21em;
+}
+select {
+  width: 21.5em;
+}
+label {
+  display: inline-block;
+  width: 12em;
+  padding: .5em;
+  color: rgb(210 220 157);
+  font: bold .8em sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+form > p {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+
+/* LINK STYLES */
+
+a {
+  text-decoration: none;
+  font-weight: bold; 
+}
+a:link {
+  color: #939;
+}
+a:visited {
+  color: #937393; 
+}
+a:focus, a:hover {
+  color: #C700F2;
+  background-color: #fff;
+}
+a:active {
+  color: fuchsia;
+  background-color: #fff;
+}
+
+
+/* TABLE STYLES */
+
+tr:first-child {
+  background-color: tomato;
+}
+tr:nth-child(even) {
+  background-color: wheat;
+}
+/* tr:nth-child(odd) {
+  background-color: blanchedalmond; 
+} 
+*/
+tr:nth-child(2n+3) {
+  background-color: blanchedalmond;
+}
+
+tr:last-child {
+  background-color: darksalmon;
+}
+td:not(.day) {
+  background-color: rgb(255 255 255 / .25);
+}
+
+table {
+  width: 34em;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+tr {
+  padding: 1em;
+}
+th, td {
+  text-align: left;
+  padding: 8px 30px;
+}
+th {
+  font: bold .8em sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+td.day {
+  font: bold 1em sans-serif;
+}
+
+
+/* MONTHLY STYLES */
+#monthly h3:nth-of-type(odd) {
+  background-color: chocolate
+}
+
+#monthly h3:nth-of-type(even) {
+  background-color: olive;
+} 
+
+/* 
+h3:nth-of-type(1) {background: violet;}
+h3:nth-of-type(2) {background: deepskyblue;}
+h3:nth-of-type(3) {background: greenyellow;}
+h3:nth-of-type(4) {background: orange;}
+h3:nth-of-type(5) {background: red;}
+
+*/
+
+#monthly p {
+  margin: .5em 2em 0;
+}
+#monthly p::first-letter{
+  font-size: 1.25em;
+  font-weight: normal;
+  font-family: sans-serif;
+  color: darkolivegreen;
+}
+#monthly h3 {
+  font: bold .8em sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-top: 1.5em;
+  padding: .2em 1em;
+  color: white;
+}
+
+
+/* ENTERTAINMENT STYLES */
+
+
+#entertainment li::before {
+  content: url(images/star-icon.png) ;
+  margin-right: .5em;
+
+}
+#entertainment li.fave::after {
+  content: " (Fan Favorite)";
+  color: darkolivegreen;
+}
+
+#entertainment li {
+  margin-top: 1em;
+}
+
+#entertainment li::first-letter {
+  font-weight: bold;
+  font-size: 1.5em;
+  font-family: sans-serif;
+  color: darkolivegreen;
+}
+
+
+/* PAGE FORMATTING STYLES */
+body {
+  font-family: Georgia, serif;
+  font-size: 100%;
+  line-height: 175%;
+  margin: 0 15% 0;
+  background-color: rgb(210 220 157);
+
+}
+header {
+  margin-top: 0;
+  padding: 3em 1em 2em 1em;
+  text-align: center;
+  background-color: rgb(255 255 255 / .5);
+}
+
+footer {
+  margin: 2em 0 3em;
+  padding-top: .5em;
+  border-top: 1px solid darkseagreen;
+  font-size:smaller;
+}
+
+#monthly, #entertainment {
+  padding: 0 6em;
+}
+
+/* TEXT STYLES */
+h1 {
+    font: bold 2em Georgia, serif;
+    color: #939;
+}
+h2 {
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  text-align: center;
+  color: hsl(30 100% 20%);
+  margin-top: 2em;
+}
+
+#info p, h2 + p {
+  font-style: italic;
+  text-align: center;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}

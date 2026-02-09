@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Breads of the World</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Stint+Ultra+Expanded" rel="stylesheet">
+
+	<style>
+html { 
+    box-sizing: border-box; 
+} 
+
+* {   
+  box-sizing: inherit; 
+  font-size: 100%;
+}
+
+body {
+  font: 1rem/1.25 'Stint Ultra Expanded', cursive;
+  color: #555;
+  margin: 1.5rem;
+}
+
+h1 {
+	font: normal 1.5rem/1.75 'Stint Ultra Expanded', cursive;
+	border-top: 1px solid darkorange;
+	border-bottom: 1px solid darkorange;
+	padding: .5rem 0;
+}
+
+h2 {
+	font: bold 1rem/1.25 Verdana, sans-serif;
+	margin-top: 0;
+}
+img {
+	width: 150px;
+	height: 150px;
+	border-radius: .5rem;
+	margin: 0 1rem .75rem 0;
+}
+
+.bread-cards {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.item {
+	flex: 1 1 320px;
+	border: 1px solid darkorange;
+	border-radius: .5rem;
+	background-color: papayawhip;
+	padding: 1rem;
+	container: card / inline-size;
+}
+
+.content-wrapper {
+	display: flex;
+	flex-direction: row;
+}
+
+.description > * {
+	margin-top: .25rem;
+}
+
+
+@container card (inline-size < 400px) {
+  .content-wrapper {
+	flex-direction: column;
+  }
+}
+
+@container card (inline-size > 540px) {
+	h2 {
+		/* font-size: 1.5rem; */
+		font-size: 3cqi;
+	}
+}
+
+
+	</style>
+</head>
+<body>
+
+<h1>This Month's Selection</h1>
+<div class="bread-cards">
+
+      <div class="item">
+      	<div class="content-wrapper">
+       <img src="images/challah_150.jpg">
+       <div class="description">
+         <h2>Braided Challah that would make Bubbe proud!</h2>
+         <p>Our braided challah bread is a traditional Jewish bread characterized by its rich, golden-brown crust and soft, slightly sweet interior.</p>
+       </div>
+     </div>
+      </div>
+ 
+      <div class="item">
+      	<div class="content-wrapper">
+       <img src="images/bread_150.jpg">
+       <div class="description">
+          <h2>No boule like a French Boule</h2>
+          <p>Our French boule is a round, rustic loaf of bread characterized by its chewy crust and soft, airy interior.</p>
+       </div>
+     </div>
+     </div>
+  
+       <div class="item">
+       	<div class="content-wrapper">
+      	<img src="images/uzbek_150.jpg">
+      <div class="description">
+        <h2>Have you tried Uzbek bread?</h2>
+        <p>Uzbek bread is not just a culinary delight but a cultural treasure that reflects the warmth, generosity, and tradition of Uzbekistan.</p>
+      </div>
+    </div>
+     </div>
+
+</div>
+</body>
+</html>
+<!-- Challah bread photo by Svetlana B on Unsplash -->

@@ -1,0 +1,445 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	font-family: Tahoma, Verdana, Geneva, sans-serif;
+	margin: 2em 6em;
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 1em;
+	text-transform:uppercase; 
+	margin: 4em 0 2em;
+	letter-spacing: .2em;
+	color: #777;
+	border-top: 1px solid #ccc;
+	}
+
+.figure {
+	clear: left;
+}
+
+/* FIGURE 20-1 */
+#fig1 a.smooth {
+	display: block;
+	text-decoration:none;
+	text-align: center;
+	padding: .5em 1em;
+	width: 10em;
+	border-radius: 1em;
+	background-color: mediumblue;
+	color: #fff;
+    transition-property: background-color; 
+    transition-duration: 0.3s; 
+}
+#fig1 a:hover, #fig1 a:focus {
+	background-color: red;
+}
+	
+
+/* FIGURE 20-3 */
+#timing_box {
+  width: 600px;
+  background-color: #c6de89;
+  padding: 0;
+  margin: 0;
+  }
+p.tf {
+  background-color: #fff;
+  border: 4px solid #009Ac7;
+  margin: 1em 0;
+  width: 120px;
+  padding: 15px 15px;
+  font-weight: normal;
+  transition-duration: 4s;
+  }
+  
+#timing_box:hover .tf {
+	width: 562px;
+}
+
+#ease {
+	transition-timing-function: ease;
+}
+#linear {
+	transition-timing-function: linear;
+}
+#ease-in {
+	transition-timing-function: ease-in;
+}
+#ease-out {
+	transition-timing-function: ease-out;
+}
+#ease-in-out {
+	transition-timing-function: ease-in-out;
+}
+#steps{
+	transition-timing-function: steps(4,end);	
+}
+#step-start {
+	transition-timing-function: step-start;	
+}
+#step-end {
+	transition-timing-function: step-end;	
+}
+/* end FIGURE 20-3 */
+
+
+
+/* FIGURE 20-4 */
+#fig4 a.smooth {
+	display: block;
+	text-decoration:none;
+	text-align: center;
+	padding: .5em 1em;
+	width: 10em;
+	border-radius: 1em;
+	background-color: mediumblue;
+	color: #fff;
+    transition-property: background-color, color, letter-spacing; 
+    transition-duration: 0.3s, 2s, 0.3s; 
+    transition-timing-function: ease-out, ease-in, ease-out; 
+		
+}
+#fig4 a:hover, #fig4 a:focus {
+	background-color: red;
+	letter-spacing: 3px;
+	color: black;
+}
+/* end figure 20-4 */
+
+
+
+/* FIGURE 20-5 */
+#fig5 ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+  }
+  
+#fig5 a {
+	display: block;
+	width: 6em;
+	margin: 0 5px;
+	padding: .5em 1em;
+	text-decoration: none;
+	text-align: center;
+	font-family: Tahoma, Verdana, Geneva, sans-serif;
+	letter-spacing: .1em;
+	color: #fff;
+	background-color: rgb(190, 190, 190);
+	border: 2px solid rgb(175,175,175);
+	border-radius: 6px;
+	text-shadow: #666 .1em .1em .1em;
+	box-shadow: 0 4px 2px rgba(0,0,0,.5);
+	position: relative;
+	top: 0px;
+	transition:  
+	  background-color 0.2s,
+	  border-color 0.2s, 
+	  top 0.1s, 
+	  box-shadow 0.1s; 
+  }
+  #fig5 a:hover, a:focus { 	
+	background-color: #c6de89; 	/* light green */
+	border-color: #a3c058;     /* darker green */
+  } 
+  #fig5 a:active {
+	top: 3px;
+	box-shadow: 0 1px 2px rgba(0,0,0,.5);
+  }
+  
+  
+/* end figure 20-5 */
+
+
+
+/* FIGURE 20-7 */
+
+#fig7 .container {
+	position: relative;
+	width: 600px;
+	height: 300px;
+	padding: 0px 20px 100px 20px;
+	/* outline: 1px dashed #ccc; */
+}
+#fig7 .img1, #fig7 .img2 {
+	position: absolute;
+	top: 0;
+	left:0;
+	margin: 50px;
+}
+
+#fig7 .img1 {
+	opacity: .2;
+}
+#fig7 .img2 {
+  transform: rotate(-10deg);
+}
+/* end figure 20-7 */
+
+
+
+/* FIGURE 20-8 */
+
+#fig8 .container {
+	position: relative;
+	width: 800px;
+	height: 300px;
+	padding: 150px;
+	/* outline: 1px dashed #ccc; */
+}
+#fig8 .img1, #fig8 .img3, #fig8 .img4, #fig8 .img5 {
+	position: absolute;
+	top: 0;
+	left:0;
+	margin: 100px;
+}
+
+#fig8 .img1 {
+	opacity: .2;
+}
+
+#fig8 .img3, #fig8 .img4, #fig8 .img5 {
+	transform: rotate(25deg);
+}
+
+#fig8 .img3 {
+	transform-origin: top center;
+}
+#fig8 .img4 {
+	transform-origin: right bottom;
+}
+#fig8 .img5 {
+	transform-origin: 400px 0;
+}
+/* end figure 20-8 */
+
+
+
+/* FIGURE 20-9 */
+
+#fig9 .container {
+	position: relative;
+	width: 800px;
+	height: 300px;
+	padding: 100px;
+	/* outline: 1px dashed #ccc; */
+}
+#fig9 .img1, #fig9 .img2 {
+	position: absolute;
+	top: 0;
+	left:0;
+	margin: 50px;
+}
+
+#fig9 .img1 {
+	opacity: .2;
+}
+#fig9 .img2 {
+  transform: translate(90px, 60px);
+}
+#fig9 .img4 {
+   transform: translate(-5%, -25%);
+}
+/* end figure 20-9 */
+
+
+
+/* FIGURE 20-10 */
+#fig10 .container {
+	position: relative;
+	width: 800px;
+	height: 300px;
+	padding: 50px 100px;
+	/* outline: 1px dashed #ccc; */
+}
+#fig10 .img1, #fig10 .img2, #fig10 .img3, #fig10 .img4 {
+	position: absolute;
+	top: 0;
+	left:0;
+	margin: 50px;
+}
+
+#fig10 .img1 {
+	opacity: .2;
+}
+#fig10 .img2 {
+  transform: scale(1.25);
+}
+#fig10 .img3 {
+  transform: scale(.75);
+}
+#fig10 .img4 {
+  transform: scale(1.5, .5);
+}
+/* end figure 20-10 */
+
+
+
+
+/* FIGURE 20-11 */
+#fig11 .container {
+	position: relative;
+	width: 800px;
+	height: 300px;
+	padding: 120px;
+	/* outline: 1px dashed #ccc;*/
+}
+#fig11 .img1, #fig11 .img2, #fig11 .img3, #fig11 .img4 {
+	position: absolute;
+	top: 0;
+	left:0;
+	margin: 150px;
+}
+
+#fig11 .img1, #fig11 .img2 {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+#fig11 .img1 {
+	opacity: .2;
+}
+#fig11 .img2 {
+  transform: skewX(15deg);
+}
+#fig11 .img3 {
+   transform: skewY(30deg);
+}
+#fig11 .img4 {
+  transform: skew(15deg, 30deg);
+}
+/* end figure 20-11 */
+
+
+/* FIGURE 20-12 */
+#fig12 .container {
+	position: relative;
+	width: 600px;
+	height: 200px;
+	padding: 50px;
+	/* outline: 1px dashed #ccc; */
+}
+#fig12 #origimg, #tiltimg {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	}
+
+#fig12 #origimg, #tiltimg {
+	width: 200px;
+	height: 150px;
+}
+
+#fig12 #origimg {
+	opacity: .25;
+
+}
+
+#fig12 #tiltimg:hover {
+	transform: scale(1.5) rotate(-5deg) translate(50px, 30px);
+	transform-origin: left top;
+}
+/* end figure 20-12 */
+
+
+
+/* FIGURE 20-13 */
+
+#fig13 ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+#fig13 li {
+	float: left;
+	margin-right: 10px;
+}
+#fig13 li:last-of-type {
+	margin-right: 0;
+}
+#fig13 a {
+	display: block;
+}
+#fig13 img {
+	width: 200px;
+	height: 150px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+	transition: transform .3s ease-in-out; 
+}
+
+#fig13 a:hover img {
+	box-shadow: 6px 6px 6px rgba(0,0,0,.3);
+}
+#fig13 a:hover #img1, a:focus #img1  {
+	transform: scale(1.5) rotate(-3deg);
+}
+#fig13 a:hover #img2, a:focus #img2  {
+	transform: scale(1.5) rotate(5deg);
+}
+#fig13 a:hover #img3, a:focus #img3  {
+	transform: scale(1.5) rotate(-7deg);
+}
+#fig13 a:hover #img4, a:focus #img4  {
+    transform: scale(1.5) rotate(2deg);
+}
+/* end figure 20-13 */
+
+
+
+/* FIGURE 20-16 */
+
+@-webkit-keyframes colors {
+  0% { background-color: red; }
+  20% { background-color: orange; }
+  40% { background-color: yellow; }
+  60% { background-color: green; }
+  80% { background-color: blue; }
+  100% { background-color: purple; }
+}
+
+@-moz-keyframes colors {
+  0% { background-color: red; }
+  20% { background-color: orange; }
+  40% { background-color: yellow; }
+  60% { background-color: green; }
+  80% { background-color: blue; }
+  100% { background-color: purple; }
+}
+@-o-keyframes colors {
+  0% { background-color: red; }
+  20% { background-color: orange; }
+  40% { background-color: yellow; }
+  60% { background-color: green; }
+  80% { background-color: blue; }
+  100% { background-color: purple; }
+}
+@-ms-keyframes colors {
+  0% { background-color: red; }
+  20% { background-color: orange; }
+  40% { background-color: yellow; }
+  60% { background-color: green; }
+  80% { background-color: blue; }
+  100% { background-color: purple; }
+} 
+
+#fig16 div {
+	width: 10em;
+	padding: 1em;
+	font-size: 2em;
+	text-align: center;
+	color: #fff;
+	background-color: gray;
+	border-radius: 1em;
+}
+#fig16 #magic {
+	-webkit-animation: colors 20s linear infinite alternate;
+	-moz-animation: colors 20s linear infinite alternate;
+	-o-animation: colors 20s linear infinite alternate;
+	-ms-animation: colors 20s linear infinite alternate;
+	animation: colors 20s linear infinite alternate;
+}
+
+/* end figure 20-18 */
