@@ -7,6 +7,7 @@
       ol, ul { 
      list-style-type: none;
       }
+
    </style>
 </head>
 
@@ -16,14 +17,17 @@
 
 <p>Our 12" wood-fired pizzas are available for delivery. Build your custom pizza and we'll deliver it within an hour.</p>
 
+<form action="http://www.blackgoosebistro.com/pizza.php" method="post">
+
 
 Your Information
 <ul>
-  <li>Name:</li>
-  <li>Address:</li>
-  <li>Telephone Number:</li>
-  <li>Email:</li>
-  <li>Delivery instructions:</li>
+  <li>Name:<input type="text" name="customerName"></li>
+  <li>Address:<input type="text" name="customerAddress"></li>
+  <li>Telephone Number:<input type="tel" name="customerTelephoneNumber"></li>
+  <li>Email:<input type="email" name="customerEmail"></li>
+  <li>Delivery instructions:<br>
+  <textarea name="delivery_instructions" rows="6" cols="45" maxlength="400"></textarea></li>
 </ul>
 
 
@@ -33,25 +37,26 @@ Your Information
 
 <p>Crust <em>(Choose one)</em>:</p>
 <ul>
-  <li>Classic white</li>
-  <li>Multigrain</li>
-  <li>Cheese-stuffed crust</li>
-  <li>Gluten-free</li>
+  <li><input type="radio">Classic white</li>
+  <li><input type="radio">Multigrain</li>
+  <li><input type="radio">Cheese-stuffed crust</li>
+  <li><input type="radio">Gluten-free</li>
 </ul>
 
 <p>Toppings <em>(Choose as many as you want)</em>:</p>
 <ul>
-  <li>Red sauce</li>
-  <li>White sauce</li>
-  <li>Mozzarella cheese</li>
-  <li>Pepperoni</li>
-  <li>Mushrooms</li>
-  <li>Peppers</li>
-  <li>Anchovies</li>
+  <li><input type="checkbox" name="topping">Red sauce</li>
+  <li><input type="checkbox" name="topping">White sauce</li>
+  <li><input type="checkbox" name="topping">Mozzarella cheese</li>
+  <li><input type="checkbox" name="topping">Pepperoni</li>
+  <li><input type="checkbox" name="topping">Mushrooms</li>
+  <li><input type="checkbox" name="topping">Peppers</li>
+  <li><input type="checkbox" name="topping">Anchovies</li>
 </ul>
 
 <p>Number</p>
-<p>How many pizzas:<p>
+<p>How many pizzas:<input type="number" name="pizza_quantity"><p>
 
+<p><input type="submit" value="Submit"></p>
 </body>
 </html>
