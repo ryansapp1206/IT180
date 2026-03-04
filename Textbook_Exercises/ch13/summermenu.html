@@ -12,58 +12,89 @@
 html {
   font-size: 100%;
 }
+
 body {
   font-family: Georgia, serif;
   line-height: 1.75;
   margin: 0 15% 0;
+  background-color: #cdd7ae;
+  background-image:url("images/bullseye.png");
+  background-position: center top;
+  background-attachment: fixed;
 }
+
 header {
   margin-top: 0;
   padding: 3em 1em 2em 1em;
   text-align: center;
+  background-color: rgb(255 255 255);
+  opacity: .5;
+  /* background-image: url("images/purpledot.png");
+  background-repeat: repeat-x;
+  background-position: center top;
+  */
+
+  background-image: url('images/blackgoose.png'), url('images/gooseshadow.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, 3em bottom;
+  background-size: contain, auto;
+
+  
 }
+
 h1 {
   font: 400 2.5rem "Julius Sans One", Verdana, sans-serif;
-  color: olivedrab;
+  color: rgb(153, 51, 153);
   text-shadow: .1em .1em .05em gainsboro;
 }
+
 h2 {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: .5em;
-  color: cadetblue;
+  color: hsl(299 65% 30%);
 }
+
 dt {
   font-weight: bold;
   color: olivedrab;
 }
+
 strong {
   font-style: italic;
 }
+
 dt strong {
   color: tomato;
 }
+
 #info {
   color: cadetblue;
 }
+
 #info p {
   font-style: italic;
 }
+
 .price {
   font-style: italic;
   color: gray;
 }
+
 .label {
   font-variant: small-caps;
   font-style: normal;
 }
+
 p.warning, sup {
   font-size: small;
   color: tomato;
 }
+
 h1, h2, #info {
   text-align: center;
 }
+
 h2 + p {
   text-align: center;
   font-style: italic;
