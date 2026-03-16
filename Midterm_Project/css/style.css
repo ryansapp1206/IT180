@@ -12,7 +12,9 @@ body {
     border: 5px solid rgb(43, 59, 159) ;
     border-radius: 2px; 
     max-width: 100%;
+
     height: auto;
+    display: block;
     margin-left: auto;
     margin-right: auto;
 }
@@ -20,9 +22,19 @@ body {
 #hobbies img {
     border: 5px solid rgb(43, 59, 159) ;
     border-radius: 2px; 
+
+    display: block;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.gallery-item img {
+    display: block;
+    margin: 20px auto;
+    border: 5px solid rgb(43, 59, 159);
+    max-width: 300px;
+    height: auto;
 }
 
 h1, h2, h3 {
@@ -68,7 +80,7 @@ main {
     background-color: rgb(43, 59, 159);
     padding: 30px;
     border-radius: 10px;
-    border: 1px solid white;
+    border: 5px solid rgb(43, 59, 159);
 }
 
 .form-group {
