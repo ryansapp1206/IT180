@@ -84,6 +84,7 @@ p.more {
   font-family: verdana, sans-serif;
   text-transform: uppercase;
   font-size: .8em;
+  clear: left;
 }
 
 /* aside "hours" styles */
@@ -112,3 +113,16 @@ h2 {
   text-transform: uppercase;
 }
 
+main img{
+  float: left;
+  margin: 0 50px 50px 0;
+}
+
+img[src*="muffin"]{
+  margin-left: 50px;
+  shape-outside: circle(110px);
+}
+
+img[src*="bread"]{
+  shape-outside: circle(125px);
+}
