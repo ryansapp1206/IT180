@@ -24,6 +24,10 @@ body {
   margin-left: 5%;
   margin-right: 5%;
 
+  display: grid;
+  grid-template-rows: 3em 20px [main-start] 150px 300px 5em [main-end];
+  grid-template-columns: [main-start] 1fr [main-end] repeat(3, 150px);
+  column-gap: 20px;
 }
 
 
@@ -90,7 +94,7 @@ main {
 
 figure {
   margin: 0;
-  padding: 0;'
+  padding: 0;
    /* clears browser styles for figures */
 }
 

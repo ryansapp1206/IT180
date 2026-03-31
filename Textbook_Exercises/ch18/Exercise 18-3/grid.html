@@ -23,11 +23,13 @@ body {
 #layout {
   margin-left: 5%;
   margin-right: 5%;
-	display: grid;
-  grid-template-rows: 3em 20px 150px 300px;
-  grid-template-columns: 1fr repeat(3, 150px);
-  column-gap: 20px; 
+
+  display: grid;
+  grid-template-rows: 3em 20px [main-start] 150px auto 5em [main-end];
+  grid-template-columns: [main-start] 1fr [main-end] repeat(3, 150px);
+  column-gap: 20px;
 }
+
 
 
 
@@ -43,13 +45,19 @@ a {
   padding-bottom: .2em;
 }
 
-
-
 /* nav styles */
+nav{
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
 nav, footer {
   font-family: verdana, sans-serif;
   background-color: #783F27;
 }
+
 nav ul li a:link, nav ul li a:visited {
   color: #F9AB33;
 }
@@ -86,6 +94,10 @@ main {
   padding: 1em;
   border: double 4px #EADDC4;
   border-radius: 25px;
+
+  grid-row: main-start / main-end;
+  grid-column: main-start / main-end;
+  grid-area: main;
 }
 
 
@@ -93,8 +105,21 @@ main {
 
 figure {
   margin: 0;
-  padding: 0;'
+  padding: 0;
    /* clears browser styles for figures */
+}
+
+#figA{
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+#figB{
+  grid-area: 3 / 3 / 4 / 4;
+}
+
+#figC{
+  grid-row: 3/4;
+  grid-column: span 1 / -1;
 }
 
 footer {
