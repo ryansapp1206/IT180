@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+    background: #f5f5f5;
+}
+
+.demo {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background: #2E75B6;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.smooth-btn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    background-color: mediumblue;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+
+    /* Replaces the three lines above */
+    /* Replaces the three lines above */
+    transition: background-color 0.4s ease-out;
+}
+.smooth-btn:hover, .smooth-btn:focus {
+    background-color: crimson;
+    font-size: 1.15rem;
+}
+
+/* Rotate 20 degrees clockwise */
+.rotate-box {
+    transform: rotate(20deg);
+}
+
+/* Move 30px right and 15px down */
+.translate-box {
+    transform: translate(30px, 15px);
+}
+
+/* Scale up to 130% */
+.scale-box {
+    transform: scale(1.3);
+}
+
+/* Skew 15 degrees on the x-axis */
+.skew-box {
+    transform: skew(15deg);
+}
+
+.rotate-box {
+    transform: rotate(20deg);
+    transform-origin: top left; /* try: center, bottom right, 0 0 */
+}
+
+.combo-box {
+    transform: rotate(-10deg) scale(1.2);
+}
+
+/* Default (resting) state */
+.card {
+    width: 160px;
+    height: 200px;
+    background: #2E75B6;
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    /* Watch the transform property for changes */
+
+    transition: transform 0.35s ease-out,
+    background-color 0.35s ease-out,
+    box-shadow 0.35s ease-out;
+}
+
+/* Hover / focus state */
+.card:hover, .card:focus {
+    transform: scale(1.08) rotate(-3deg) translateY(-8px);
+    background-color: crimson;
+
+    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
+
+@keyframes rainbow {
+    0% { background-color: red; }
+    20% { background-color: orange; }
+    40% { background-color: gold; }
+    60% { background-color: green; }
+    80% { background-color: royalblue; }
+    100% { background-color: purple; }
+}
+
+.magic-box {
+    width: 140px;
+    height: 140px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    animation-name: rainbow;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+
+    animation: rainbow 4s linear infinite alternate,
+    spin 3s linear infinite;
+}
+
+@keyframes spin {
+    from { rotate: 0deg; }
+    to { rotate: 360deg; }
+}
