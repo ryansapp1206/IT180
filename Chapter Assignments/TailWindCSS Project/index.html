@@ -6,22 +6,28 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Tailwind Animation Presentation</title>
   <style>
-    .slide { display: none; }
-    .slide.active { display: flex; }
+    .slide { 
+      display: none; 
+    }
+
+    .slide.active { 
+      display: flex; 
+    }
   </style>
 </head>
 <body class="bg-slate-900 text-white min-h-screen flex flex-col items-center justify-center p-6 font-sans">
 
   <div id="slide-1" class="slide active flex-col items-center text-center space-y-6">
+
     <h1 class="text-6xl font-black text-indigo-500 tracking-tight">Tailwind CSS</h1>
     <h2 class="text-4xl font-bold">Animation Utilities</h2>
-    <p class="text-slate-400 text-xl max-w-lg">How to add motion to your UI using four core functional classes.</p>
-    <div class="mt-8 px-4 py-2 bg-slate-800 rounded-full border border-slate-700 text-sm font-mono">
-      Presented by: Ryan Sapp • April 13
-    </div>
+    <p class="text-slate-400 text-xl max-w-lg">How to add motion to your UI using concrete and customizable TailWind Classes.</p>
+
+    <div class="mt-8 px-4 py-2 bg-slate-800 rounded-full border border-slate-700 text-sm font-mono">Presented by: Ryan Sapp • April 13</div>
   </div>
 
   <div id="slide-2" class="slide flex-col items-center text-center space-y-8">
+
     <h2 class="text-5xl font-bold text-rose-500">animate-spin</h2>
     <div class="p-12 bg-slate-800 rounded-3xl border-2 border-rose-500/20">
       <svg class="animate-spin h-24 w-24 text-rose-500" viewBox="0 0 24 24">
@@ -29,6 +35,7 @@
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
       </svg>
     </div>
+
     <div class="space-y-2">
       <p class="text-2xl font-semibold">Best for: Loading Indicators</p>
       <p class="text-slate-400">Uses a linear timing function for infinite, smooth rotation.</p>
@@ -43,6 +50,7 @@
         <span class="relative inline-flex rounded-full h-20 w-20 bg-sky-500 shadow-xl"></span>
       </span>
     </div>
+
     <div class="space-y-2">
       <p class="text-2xl font-semibold">Best for: Notification Badges</p>
       <p class="text-slate-400">Creates a ripple effect to grab user attention without being annoying.</p>
@@ -60,6 +68,7 @@
         </div>
       </div>
     </div>
+
     <div class="space-y-2">
       <p class="text-2xl font-semibold">Best for: Skeleton Loaders</p>
       <p class="text-slate-400">Gently fades opacity to signal that data is currently fetching.</p>
@@ -73,6 +82,7 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m0 0V3"></path>
       </svg>
     </div>
+    
     <div class="space-y-2">
       <p class="text-2xl font-semibold">Best for: Scroll Indicators</p>
       <p class="text-slate-400">Uses a physics-based bounce to hint at more content below.</p>
@@ -88,12 +98,14 @@
   </div>
 
   <script>
+
     function showSlide(slideNumber) {
       // Hide all slides
       document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
       // Show the selected slide
       document.getElementById('slide-' + slideNumber).classList.add('active');
     }
+
   </script>
 </body>
 </html>
