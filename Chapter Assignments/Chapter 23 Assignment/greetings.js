@@ -26,3 +26,22 @@ function greetingsGenerator(names){
 
 // call the greetings generator function with the names array
 greetingsGenerator(names);
+
+function divBy3and5(num) {
+    if(num % 3 === 0 && num % 5 === 0){
+        console.log("FizzBuzz");
+    }
+    else if(num % 5 === 0){
+        console.log("Buzz");
+    }
+    else if(num % 3 === 0){
+        console.log("Fizz");
+    }
+    else {
+        console.log(num);
+    }    
+}
+
+for(i = 1; i <= 100; i++){
+    console.log(divBy3and5(i));
+}
