@@ -136,3 +136,41 @@ button:hover {
     background: var(--accent-red);
     color: #000;
 }
+
+@media print {
+    /* Force the body and html to allow multiple pages */
+    html, body {
+        overflow: visible !important;
+        height: auto !important;
+        background-color: #000000 !important;
+    }
+
+    /* Stop the container from acting like a slider */
+    .slide-container {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        transform: none !important;
+        overflow: visible !important;
+    }
+
+    /* Force each slide to be its own page */
+    .slide {
+        display: flex !important;
+        float: none !important;
+        width: 100% !important;
+        height: 100vh !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        position: relative !important;
+        visibility: visible !important;
+        /* Force the black background and red colors */
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Hide the UI controls */
+    .controls {
+        display: none !important;
+    }
+}
