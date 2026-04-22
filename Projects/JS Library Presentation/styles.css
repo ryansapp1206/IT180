@@ -1,0 +1,138 @@
+:root {
+    --bg-color: #0a0a0a;
+    --card-bg: #1a1a1a;
+    --accent-red: #ff3e3e;
+    --dim-red: #8b0000;
+    --text-main: #ffffff;
+    --text-dim: #a1a1a1;
+    /* Syntax Highlighting Palette */
+    --syntax-keyword: #ff7b72;
+    --syntax-function: #d2a8ff;
+    --syntax-string: #a5d6ff;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Consolas', 'Courier New', monospace;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    overflow: hidden;
+}
+
+.slide-container {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100vh;
+    width: 600vw;
+}
+
+.slide {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.title-slide h1 {
+    font-size: 5rem;
+    color: var(--accent-red);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin: 0;
+}
+
+.content-slide {
+    align-items: flex-start;
+    text-align: left;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2.8rem;
+    color: var(--accent-red);
+    margin-bottom: 30px;
+}
+
+ul {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 25px;
+}
+
+li::before {
+    content: "> ";
+    color: var(--accent-red);
+}
+
+.comparison-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.code-column {
+    flex: 1;
+}
+
+.code-column h3 {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.code-box {
+    background: #000000;
+    padding: 20px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    border: 1px solid #333;
+}
+
+/* Updated Syntax Highlighting Classes */
+.token-keyword { color: var(--syntax-keyword); }
+.token-function { color: var(--syntax-function); }
+.token-string { color: var(--syntax-string); }
+
+pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.controls {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    background: transparent;
+    color: var(--accent-red);
+    border: 1px solid var(--dim-red);
+    padding: 12px 24px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: var(--accent-red);
+    color: #000;
+}
