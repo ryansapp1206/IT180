@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Libraries Presentation - Ryan Sapp</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+</head>
+<body>
+
+    <div class="slide-container" id="container">
+        
+        <section class="slide title-slide">
+            <h1>JS LIBRARIES</h1>
+            <div style="margin-top: 60px; color: var(--text-dim); font-size: 1.2rem; letter-spacing: 2px;">
+                RYAN SAPP | IT 180 | 22 APRIL 2026
+            </div>
+        </section>
+
+        <section class="slide content-slide">
+            <h2>What is a JavaScript Library?</h2>
+            <ul>
+                <li>Pre-written code that we can use for our projects.</li>
+                <li>A collection of specialized functions for things like dates, charts, or UI.</li>
+                <li>Instead of building every complex feature from scratch, we use a library to do the heavy lifting.</li>
+            </ul>
+        </section>
+
+        <section class="slide content-slide">
+            <h2>Why Use Them?</h2>
+            <ul>
+                <li>Save time by not having to work from the ground up for every feature.</li>
+                <li>Use code that has already been tested by millions of other people.</li>
+                <li>Avoid the headache of making complex features work in every single browser.</li>
+            </ul>
+        </section>
+
+        <section class="slide content-slide">
+            <h2>Luxon Library: Date Formatting</h2>
+            <p style="color: var(--text-dim)">Task: Display "Wednesday, April 22, 2026"</p>
+            
+            <div class="comparison-container">
+                <div class="code-column">
+                    <h3>VANILLA JS</h3>
+                    <div class="code-box">
+<pre>
+<span class="token-keyword">const</span> days = [<span class="token-string">"Sun"</span>, <span class="token-string">"Mon"</span>, <span class="token-string">"Tue"</span>, <span class="token-string">"Wed"</span>...];
+<span class="token-keyword">const</span> months = [<span class="token-string">"Jan"</span>, <span class="token-string">"Feb"</span>, <span class="token-string">"Mar"</span>...];
+<span class="token-keyword">const</span> d = <span class="token-keyword">new</span> <span class="token-function">Date</span>();
+
+<span class="token-keyword">const</span> formatted = days[d.<span class="token-function">getDay</span>()] + <span class="token-string">", "</span> + 
+                  months[d.<span class="token-function">getMonth</span>()] + <span class="token-string">" "</span> + 
+                  d.<span class="token-function">getDate</span>() + <span class="token-string">", "</span> + 
+                  d.<span class="token-function">getFullYear</span>();
+</pre>
+                    </div>
+                </div>
+                <div class="code-column">
+                    <h3>LIBRARY (LUXON)</h3>
+                    <div class="code-box">
+<pre>
+<span class="token-keyword">const</span> formatted = DateTime.<span class="token-function">now</span>()
+  .<span class="token-function">toFormat</span>(<span class="token-string">'cccc, MMMM dd, yyyy'</span>);
+</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide content-slide">
+            <h2>The "Helper" Layer</h2>
+            <ul>
+                <li>Libraries act as a "helper" that sits on top of standard JavaScript.</li>
+                <li>Makes code significantly more concise.</li>
+                <li>They let us focus on building the actual app instead of worrying about the underlying math or logic.</li>
+            </ul>
+        </section>
+
+        <section class="slide">
+            <h2 style="border: none; text-align: center;">SUMMARY</h2>
+            <ul style="text-align: left; display: inline-block;">
+                <li>Libraries maximize productivity and developer speed.</li>
+                <li>They provide a high-level interface for native browser functions.</li>
+                <li>Modern web development is built upon these shared tools.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <div class="controls">
+        <button id="prev">Prev</button>
+        <button id="next">Next</button>
+    </div>
+
+    <script src="presentation.js"></script>
+</body>
+</html>
