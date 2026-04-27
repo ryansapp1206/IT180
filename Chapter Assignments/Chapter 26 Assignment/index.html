@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 26 Assignment</title>
+    <style>
+        .hero-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-container">
+        <picture>
+            <source srcset="Dude Chillin on a rock.avif" type="image/avif" />
+            <source srcset="Dude Chillin on a rock.webp" type="image/webp" />
+            <img src="Dude Chillin on a rock.jpg" srcset="Dude Chillin on a rock.jpg 1x, Dude Chillin on a rock@2x.jpg 2x" alt="Hero image" />
+        </picture>
+    </div>
+    <p style="text-align: center; font-weight: bold; font-size: 2rem;">
+        He chillin on a rock
+    </p>
+</body>
+</html>
