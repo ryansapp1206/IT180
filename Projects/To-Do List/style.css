@@ -1,0 +1,26 @@
+body {
+    font-family: sans-serif;
+    margin: 40px;
+}
+
+.container {
+    max-width: 400px;
+}
+
+ul {
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+button {
+    cursor: pointer;
+}
