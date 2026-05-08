@@ -2,70 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Interests & Projects | Ryan Sapp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Interests | Ryan Sapp</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
     <header>
-        <h1>Interests & Projects</h1>
+        <h1>Technical Projects & Interests</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="projectsinterests.html">Interests & Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projectsinterests.html">Projects</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><button id="theme-toggle">🌙 Dark Mode</button></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="hobbies">
-            <h2>Personal Interests</h2>
-            <p>
-                When I am not studying, I spend a lot of my time exploring new hobbies. 
-                My main interests include building PCs, 3D printing, playing video games, 
-                and going on hikes/backpacking trips.
-            </p>
+        <section id="projects-and-skills">
+            <h2>Recent Software Projects</h2>
             
-            <img src="images/dollysods.jpg" alt="A photo taken in Dolly Sods West Virginia" width="500">
-
+            <h3>ytShuffle.com</h3>
             <p>
-                I'm also a big <strong>Right to Repair</strong> advocate. I would much prefer to spend 
-                an afternoon troubleshooting hardware or repairing a few components rather than just 
-                throwing it away. Its a shame when companies create products in a way that
-                discourages the customer to repair them, solely for a profit. 
-                If you want to see why that matters, check out 
-                <a href="https://www.ifixit.com/Right-to-Repair/Intro" target="_blank">iFixit</a>.
+                I recently engineered and deployed <strong><a href="https://ytshuffle.com" target="_blank">ytShuffle.com</a></strong>, a web application that functions as a mathematically random playlist shuffler. To build this, I integrated the <strong>YouTube Data API v3</strong> and implemented secure user authentication via <strong>OAuth 2.0</strong> to bypass standard algorithm limitations. 
+            </p>
+            <p>
+                The infrastructure is entirely cloud-native, hosted utilizing <strong>AWS S3</strong> for storage, <strong>AWS CloudFront</strong> for global content delivery, and <strong>AWS Route 53</strong> for DNS management.
+            </p>
+
+            <h3>Smart Calendar Integration</h3>
+            <p>
+                Currently developing a smart-calendar system bridging the <strong>Google Calendar API</strong> with <strong>Amazon Alexa</strong> hardware to facilitate hands-free schedule management and deeper exploration of cross-device communication.
             </p>
         </section>
 
-        <section id="projects-and-skills">
-            <h2>Projects & Hands-On Work</h2>
-            
-            <h3>Smart Calendar Integration</h3>
+        <section id="hobbies">
+            <h2>Advocacy & Hands-On Work</h2>
             <p>
-                I'm currently building a smart-calendar system that links the 
-                <strong>Google Calendar API</strong> with <strong>Amazon Alexa</strong>. 
-                The goal is a hands-free schedule that I can update with ease. 
-                This is acting as a way to further learn about CSS, APIs and inter-device communication.
+                Beyond software, I specialize in <strong>hardware troubleshooting</strong>, <strong>woodworking</strong>, and <strong>3D printing</strong>. I am also a strong advocate for the <strong>Right to Repair</strong> movement. I prefer to repair and troubleshoot hardware at the component level rather than discarding it. 
+                To see why combating planned obsolescence matters, check out <a href="https://www.ifixit.com/Right-to-Repair/Intro" target="_blank">iFixit's manifesto</a>.
             </p>
-
-            <h3>Hardware & Craftsmanship</h3>
-            <p>
-                I specialize in <strong>hardware troubleshooting</strong>, 
-                <strong>3D printing</strong>, and <strong>woodworking</strong>. 
-                I find that the precision required for physical crafts translates 
-                directly to my work in computer science.
-            </p>
-
-            <p>Check out my <a href="gallery.html">Project Gallery</a> to see a few of my projects!</p>
+            <p>Check out my <a href="gallery.html">Project Gallery</a> to see a few of my physical builds!</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy;2026 Ryan Sapp</p>
+        <p>&copy; 2026 Ryan Sapp</p>
     </footer>
 
 </body>
