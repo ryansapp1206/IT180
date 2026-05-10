@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects & Interests | Ryan Sapp</title>
     <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>
+    
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -26,6 +33,12 @@
     <main>
         <section id="projects-and-skills">
             <h2>Recent Software Projects</h2>
+
+            <h3>GitHub Repositories</h3>
+            <p>Live feed of my most recently updated codebases:</p>
+            <div id="github-repos" class="github-grid">
+                Loading repositories...
+            </div>
             
             <h3>ytShuffle.com</h3>
             <p>

@@ -12,8 +12,7 @@ html {
     --border-radius: 8px;
 }
 
-/* Dark Mode Class (Toggled via JS) */
-body.dark-mode {
+html.dark-mode {
     --bg-primary: #121212;
     --bg-secondary: #1e1e1e;
     --text-primary: #e0e0e0;
@@ -22,7 +21,6 @@ body.dark-mode {
     --highlight: #4da8da;
 }
 
-/* --- Base Styles (Element Selectors) --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -33,7 +31,6 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Grouping Selector */
 h1, h2, h3 {
     color: var(--text-primary);
     font-weight: 700;
@@ -51,21 +48,17 @@ a:hover {
     text-decoration: underline;
 }
 
-/* --- Layout & Structure --- */
 header {
-    /* Dolly Sods background with a slightly darker 90% opacity overlay for readability */
     background-image: linear-gradient(
         rgba(15, 23, 30, 0.90), 
         rgba(15, 23, 30, 0.85)
     ), 
     url('../images/dollysods.jpg');
-    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
     color: white;
-    padding: 3rem 5%; /* Thicker padding to show off the landscape */
+    padding: 3rem 5%; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,12 +72,11 @@ header h1 {
     text-align: center;
 }
 
-/* Descendant Selector */
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Flexbox */
+    display: flex; 
     gap: 20px;
     align-items: center;
 }
@@ -126,19 +118,16 @@ section {
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-/* --- Images & Media --- */
-/* Class Selector */
 .profile-img {
     max-width: 250px;
-    border-radius: 50%; /* Circle headshot */
+    border-radius: 50%; 
     display: block;
     margin: 20px auto;
     border: 4px solid var(--highlight);
 }
 
-/* CSS Grid Gallery */
 .gallery-container {
-    display: grid; /* Grid */
+    display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     padding: 20px 0;
@@ -150,16 +139,14 @@ section {
     object-fit: cover;
     border-radius: var(--border-radius);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    /* Transitions & Transforms */
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .gallery-container img:hover {
-    transform: translateY(-5px) scale(1.03); /* Transforms */
+    transform: translateY(-5px) scale(1.03); 
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* --- Forms (ID Selector) --- */
 #contact-form {
     display: flex;
     flex-direction: column;
@@ -198,15 +185,17 @@ footer {
     margin-top: 40px;
 }
 
-/* --- Media Queries --- */
 @media (min-width: 768px) {
     header {
         flex-direction: row;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
     header h1 {
         margin: 0;
         text-align: left;
+        width: 100%;
+        margin-bottom: 1rem;
     }
 }
 
@@ -223,3 +212,68 @@ footer {
         max-width: 200px;
     }
 }
+
+/* --- Feature: Scroll-Spy Active Nav --- */
+nav ul li a.active {
+    color: var(--highlight);
+    border-bottom: 2px solid var(--highlight);
+    padding-bottom: 2px;
+}
+
+/* --- Feature: Gallery Lightbox Modal --- */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+.lightbox.active {
+    display: flex;
+}
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+    position: absolute;
+    top: 20px; right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.lightbox-close:hover {
+    color: var(--highlight);
+}
+
+/* --- Feature: GitHub Repo Cards --- */
+.github-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+.repo-card {
+    background: var(--bg-primary);
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+html.dark-mode .repo-card {
+    border-color: #333;
+}
+.repo-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.repo-card h4 { margin-top: 0; color: var(--highlight); margin-bottom: 5px; }
+.repo-card a { text-decoration: none; display: block; height: 100%; }
+.repo-card p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }

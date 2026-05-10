@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Ryan Sapp Professional Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>
+    
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -34,25 +41,32 @@
 
     <main>
         <section id="ryan-summary">
-            <h2>Building the Future, One Line at a Time</h2>
+            <h2>Professional Summary</h2>
             <img src="images/headshot.jpg" alt="A professional headshot of Ryan Sapp" class="profile-img">
             <p>
-                Hello! My name is Ryan Sapp. I am a Computer Science major currently studying at Hood College. 
+                Hello. My name is Ryan Sapp. I am a Computer Science major currently studying at Hood College. 
                 This website serves as my professional digital hub, showcasing my software development experience, 
-                architectural projects, and technical proficiencies.
+                systems architecture projects, and technical proficiencies.
             </p>
         </section>
 
         <section id="about-section">
-            <h2>Professional Background</h2>
+            <h2>Background</h2>
             <p>
-                My interest in technology began with hardware and custom PC building, which naturally evolved into a deep focus on software development and backend infrastructure. Having transferred with a 4.0 GPA, I am dedicated to developing a robust foundation in full-stack web development, API integration, and cloud architecture.
+                My interest in technology began with hardware and custom PC building, which naturally evolved into a deep focus on software development and backend infrastructure. As a transfer student, I am currently dedicated to developing a robust foundation in full-stack web development, API integration, and cloud architecture.
             </p>
             <p><em>For a full breakdown of my education and skills, view my <a href="about.html">Detailed About Page</a>.</em></p>
         </section>
 
         <section id="projects-section">
             <h2>Recent Software Projects</h2>
+            
+            <h3>GitHub Repositories</h3>
+            <p>Live feed of my most recently updated codebases:</p>
+            <div id="github-repos" class="github-grid">
+                Loading repositories...
+            </div>
+
             <h3>ytShuffle.com</h3>
             <p>
                 Engineered and deployed <strong><a href="https://ytshuffle.com" target="_blank">ytShuffle.com</a></strong>, a web application functioning as a mathematically random playlist shuffler using the <strong>YouTube Data API v3</strong> and secure user authentication via <strong>OAuth 2.0</strong>. Hosted utilizing <strong>AWS S3</strong>, <strong>AWS CloudFront</strong>, and <strong>AWS Route 53</strong>.
