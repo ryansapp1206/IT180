@@ -76,6 +76,43 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* --- PRINT MODE CLASSES (Triggered by JavaScript) --- */
+        body.print-mode {
+            overflow: visible !important;
+            background-color: #121212 !important;
+            display: block !important;
+            height: auto !important;
+            -webkit-print-color-adjust: exact; 
+            print-color-adjust: exact;
+        }
+        body.print-mode .presentation-container {
+            width: 100% !important;
+            height: auto !important;
+            transform: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        body.print-mode .slide {
+            display: block !important; /* Forces all slides to show */
+            opacity: 1 !important;     /* Fixes the invisible text bug */
+            visibility: visible !important;
+            animation: none !important;
+            height: 100vh !important;
+            page-break-after: always !important;
+            padding: 40px 60px !important;
+            overflow: hidden !important;
+        }
+        body.print-mode .controls, 
+        body.print-mode .slide-counter {
+            display: none !important;
+        }
+        /* Shrinks down the fonts specifically for the PDF so they don't run off the page */
+        body.print-mode h1 { font-size: 3.5rem !important; margin-top: 15% !important; }
+        body.print-mode h2 { font-size: 2.8rem !important; margin-bottom: 20px !important; }
+        body.print-mode h3 { font-size: 2rem !important; margin-top: 20px !important; margin-bottom: 10px !important; }
+        body.print-mode p, body.print-mode li { font-size: 1.4rem !important; line-height: 1.4 !important; margin-bottom: 15px !important; }
+        body.print-mode pre[class*="language-"] { font-size: 1.2rem !important; padding: 20px !important; margin-top: 20px !important;}
     </style>
 </head>
 <body>
@@ -88,18 +125,19 @@
 
     <div class="slide">
         <h2>Project Overview</h2>
+        <p>This presentation outlines the transition from a basic midterm layout into a fully functional web application.</p>
         <ul>
-            <li><strong>The Goal:</strong> Transform a static, multi-page midterm assignment into a dynamic, responsive digital resume capable of holding real-world data.</li>
-            <li><strong>The Architecture:</strong> Built entirely from scratch using semantic HTML5, modern CSS, and Vanilla JavaScript.</li>
-            <li><strong>The Strategy:</strong> Designed an "Executive Summary" homepage for quick scanning, with detailed content structured across a modular, multi-page architecture.</li>
+            <li><strong>Goal:</strong> Convert my midterm project into a dynamic, responsive digital resume that can access live data.</li>
+            <li><strong>Professionalism:</strong> Designed to serve as a legitimate, real-world portfolio piece to showcase my technical capabilities as a Computer Science student.</li>
+            <li><strong>Architecture:</strong> Built entirely from scratch using semantic HTML, modern CSS, and Vanilla JavaScript.</li>
         </ul>
     </div>
 
     <div class="slide">
         <h2>Design & Layout</h2>
         <ul>
-            <li><strong>Colors:</strong> High-contrast Slate and Blue palette. I used CSS Variables (`:root`) to maintain strict color consistency across all pages.</li>
-            <li><strong>Fonts:</strong> Segoe UI and standard sans-serif fallbacks for a clean, tech-focused aesthetic that prioritizes readability.</li>
+            <li><strong>Colors:</strong> High-contrast Slate and Blue theme. I used CSS Variables (`:root`) to maintain strict color consistency across all pages.</li>
+            <li><strong>Fonts:</strong> Segoe UI and standard sans-serif fallbacks for a modern aesthetic that prioritizes readability.</li>
             <li><strong>Spacing & UX:</strong> Generous line heights (1.6) and padding ensure the site doesn't feel cluttered. Important elements have hover states to provide immediate user feedback.</li>
         </ul>
     </div>
@@ -117,14 +155,14 @@
         <h2>CSS Grid & Flexbox</h2>
         <p>I utilized both CSS layout modules based on their specific strengths:</p>
         <ul>
-            <li><strong>Flexbox:</strong> Used in the header and navigation bars. It perfectly handles horizontal alignment, spacing out the links evenly, and stacking them cleanly on mobile screens.</li>
-            <li><strong>CSS Grid:</strong> Used for the hardware image gallery and GitHub repository cards. By using `repeat(auto-fit, minmax(...))`, the grid automatically calculates how many columns can fit on the screen without needing complex media queries.</li>
+            <li><strong>Flexbox:</strong> Used in the header and navigation bars. It perfectly handles horizontal alignment, and spacing out the links evenly.</li>
+            <li><strong>CSS Grid:</strong> Used for the hardware image gallery and GitHub repository cards. By using `repeat(auto-fit, minmax(...))`, the grid automatically calculates how many columns can fit on the screen without needing additional media queries.</li>
         </ul>
     </div>
 
     <div class="slide">
         <h2>JavaScript Features</h2>
-        <p>I implemented several interactive modules to elevate the site from a static document to an application:</p>
+        <p>I implemented several interactive modules to improve the site:</p>
         <ul>
             <li><strong>Theme Toggle:</strong> Allows users to switch between light and dark modes, saving their preference to `localStorage`.</li>
             <li><strong>Dynamic Greeting:</strong> Uses the `Date()` object to determine the time of day and updates the homepage H1 appropriately (Morning/Afternoon/Evening).</li>
@@ -137,8 +175,8 @@
         <h2>Code Spotlight: State Persistence</h2>
         <p>This snippet handles the logic for toggling the dark mode class and saving the user's preference locally so it persists across page loads.</p>
         <pre><code class="language-javascript">
-// Listen for clicks, toggle the class, and save the choice to local storage
-themeBtn.addEventListener('click', () => {
+// Listen for clicks, toggle class, and save choice to local storage
+themeBtn.addEventListener('click', function() {
     const isDark = document.documentElement.classList.toggle('dark-mode');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
     updateButtonLabel(isDark);
@@ -152,29 +190,30 @@ themeBtn.addEventListener('click', () => {
         <pre><code class="language-javascript">
 const username = 'ryansapp1206';
 // Grab the 4 most recently updated repos
-const url = `https://api.github.com/users/${username}/repos?sort=updated&per_page=4`;
+const url = "https://api.github.com/users/" + username + "/repos?sort=pushed&direction=desc&per_page=4";
 
 fetch(url)
-    .then(res => res.json()) // Parse the raw response into JSON
-    .then(data => {
+    .then(function(res) {
+        return res.json(); // Parse the raw response into JSON
+    })
+    .then(function(data) {
         githubContainer.innerHTML = ''; // Wipe out the skeleton loaders
         </code></pre>
     </div>
-
     <div class="slide">
         <h2>Challenges & Solutions</h2>
         <h3>The Challenge: FOUC (Flash of Unstyled Content)</h3>
         <p>When navigating between pages, the site would briefly flash the default light theme for a split second before the JavaScript loaded and applied the dark theme.</p>
         <h3>The Solution</h3>
-        <p>I extracted the `localStorage` check from my main `script.js` file and placed it in a small, blocking &lt;script&gt; tag directly inside the HTML &lt;head&gt;. This forces the browser to read the theme preference and apply the dark-mode class *before* it paints the screen.</p>
+        <p>I extracted the `localStorage` check from my main `script.js` file and placed it in a small, blocking &lt;script&gt; tag directly inside the HTML &lt;head&gt;. This forces the browser to read the theme preference and apply the dark-mode class before it paints the screen.</p>
     </div>
 
     <div class="slide">
-        <h2>What I Learned & Next Steps</h2>
+        <h2>Thoughtful Improvements & Next Steps</h2>
         <ul>
-            <li><strong>Modular Code:</strong> Refactoring my JavaScript into specific, encapsulated functions (like `initializeThemeToggle()` and `fetchGitHubRepositories()`) made the code significantly easier to debug and read.</li>
-            <li><strong>Asynchronous Data:</strong> Learning to handle API responses and build DOM elements dynamically was a major step up from static coding.</li>
-            <li><strong>Future Improvements:</strong> I plan to expand the portfolio by integrating the Google Calendar and Amazon Alexa APIs for a smart-calendar project I am currently developing.</li>
+            <li><strong>Continuous Iteration:</strong> I plan to treat this portfolio as a living document, constantly updating the project and skill sections as I complete new coursework and hardware builds.</li>
+            <li><strong>Cloud Deployment:</strong> I am utilizing AWS (Amazon Web Services) to host the site publicly. Managing the infrastructure ensures the portfolio is highly available and accessible to anyone.</li>
+            <li><strong>Backend Form Handling:</strong> To improve the user experience, I plan to integrate a third-party backend service (like Formspree or EmailJS) to add genuine, silent email functionality to the contact form, replacing the standard local mail client prompt.</li>
         </ul>
     </div>
 
@@ -192,7 +231,11 @@ fetch(url)
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 <script>
+    let isPrinting = false; // Prevents scaling glitches during print preview
+
     function scalePresentation() {
+        if (isPrinting) return; // Disables scaling when the print menu is open
+
         const presentation = document.getElementById('presentation');
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
@@ -239,6 +282,20 @@ fetch(url)
         }
     });
     updateSlides();
+
+    // --- PRINT EVENT LISTENERS ---
+    window.addEventListener('beforeprint', () => {
+        isPrinting = true;
+        document.body.classList.add('print-mode');
+        // Force removal of the inline transform so CSS can take over completely
+        document.getElementById('presentation').style.transform = 'none';
+    });
+
+    window.addEventListener('afterprint', () => {
+        isPrinting = false;
+        document.body.classList.remove('print-mode');
+        scalePresentation(); // Re-apply the normal screen scale when you close the print menu
+    });
 </script>
 </body>
 </html>

@@ -1,33 +1,26 @@
-// Wait for the HTML to fully load before running anything
+// Run when DOM loads
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Call all modules
+    // Init modules
     initializeThemeToggle();
     setDynamicGreeting();
     handleFormValidation();
     setupGalleryLightbox();
     fetchGitHubRepositories();
 
-    // Theme Toggle Logic
+    // Theme Toggle
     function initializeThemeToggle() {
         const themeBtn = document.getElementById('theme-toggle');
-        if (!themeBtn) {
-            return; // Exit if button isn't on page
-        }
+        if (!themeBtn) return; 
 
-        // Helper function to change button text
         function updateButtonLabel(isDark) {
-            if (isDark) {
-                themeBtn.textContent = 'Light Mode';
-            } else {
-                themeBtn.textContent = 'Dark Mode';
-            }
+            themeBtn.textContent = isDark ? 'Light Mode' : 'Dark Mode';
         }
 
-        // Set initial label based on current class
+        // Check default state
         updateButtonLabel(document.documentElement.classList.contains('dark-mode'));
 
-        // Listen for clicks, toggle class, and save choice to local storage
+        // Toggle theme and save to local storage
         themeBtn.addEventListener('click', function() {
             const isDark = document.documentElement.classList.toggle('dark-mode');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
@@ -35,14 +28,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Dynamic Greeting Logic
+    // Dynamic Greeting
     function setDynamicGreeting() {
         const greetingElement = document.getElementById('dynamic-greeting');
-        if (!greetingElement) {
-            return;
-        }
+        if (!greetingElement) return;
 
-        // Grab the current hour (0-23) and figure out what to say
+        // Get current hour for greeting logic
         const hour = new Date().getHours();
         let greeting = 'Welcome';
 
@@ -54,46 +45,39 @@ document.addEventListener('DOMContentLoaded', function() {
             greeting = 'Good Evening';
         }
 
-        greetingElement.textContent = `${greeting}. Welcome to My Professional Portfolio.`;
+        greetingElement.textContent = greeting + ". Welcome to My Professional Portfolio.";
     }
 
-    // --- Form Validation Logic ---
+    // Form Validation
     function handleFormValidation() {
         const contactForm = document.getElementById('contact-form');
-        if (!contactForm) {
-            return;
-        }
+        if (!contactForm) return;
 
         contactForm.addEventListener('submit', function(e) {
             const emailInput = document.getElementById('user-email');
-            if (!emailInput) {
-                return;
-            }
+            if (!emailInput) return;
 
             const email = emailInput.value;
-            // Basic check to ensure it looks like an email
+            // Basic email validation check
             const isValidEmail = email.includes('@') && email.includes('.');
 
-            // Stop the form from submitting immediately
+            // Prevent default mailto submission
             e.preventDefault();
 
             if (!isValidEmail) {
                 alert('Please enter a valid email address.');
             } else {
-                alert('Thank you for reaching out! Your message has been validated and "sent".');
-                // You'd normally let the form submit here in a real backend setup
+                alert('Thank you for reaching out! Your message has been validated and sent.');
             }
         });
     }
 
-    // --- Lightbox Image Gallery ---
+    // Gallery Lightbox
     function setupGalleryLightbox() {
         const galleryImages = document.querySelectorAll('.gallery-container img');
-        if (galleryImages.length === 0) {
-            return;
-        }
+        if (galleryImages.length === 0) return;
 
-        // Build the modal HTML completely in JS and drop it into the body
+        // Inject lightbox container into DOM
         const lightbox = document.createElement('div');
         lightbox.classList.add('lightbox');
         lightbox.innerHTML = `
@@ -109,16 +93,16 @@ document.addEventListener('DOMContentLoaded', function() {
             lightbox.classList.remove('active');
         }
 
-        // Loop through all gallery images and add click events to them
+        // Add click listeners to gallery images
         galleryImages.forEach(function(img) {
             img.style.cursor = 'pointer';
             img.addEventListener('click', function() {
-                lightboxImg.src = img.src; // Copy the clicked image source to the lightbox
-                lightbox.classList.add('active'); // Show it
+                lightboxImg.src = img.src; 
+                lightbox.classList.add('active'); 
             });
         });
 
-        // Close when clicking the X or anywhere outside the image
+        // Close handlers
         closeBtn.addEventListener('click', closeLightbox);
         lightbox.addEventListener('click', function(e) {
             if (e.target !== lightboxImg) {
@@ -127,30 +111,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- GitHub API Integration ---
+    // GitHub API Fetch
     function fetchGitHubRepositories() {
         const githubContainer = document.getElementById('github-repos');
-        if (!githubContainer) {
-            return;
-        }
+        if (!githubContainer) return;
 
         const username = 'ryansapp1206';
-        // Grab the 4 most recently updated repos
-        const url = `https://api.github.com/users/${username}/repos?sort=updated&per_page=4`;
+        // Fetch 4 latest repos
+        const url = "https://api.github.com/users/" + username + "/repos?sort=pushed&direction=desc&per_page=4";
 
         fetch(url)
             .then(function(res) {
-                return res.json(); // Parse the raw response into JSON
+                return res.json(); 
             })
             .then(function(data) {
-                githubContainer.innerHTML = ''; // Wipe out the skeleton loaders
+                githubContainer.innerHTML = ''; // clear skeletons
 
                 if (!data || data.length === 0) {
                     githubContainer.innerHTML = '<p>No public repositories found.</p>';
                     return;
                 }
 
-                // Loop through the data and build HTML cards for each repo
+                // Build repo cards
                 data.forEach(function(repo) {
                     const card = document.createElement('div');
                     card.classList.add('repo-card');
@@ -163,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             })
             .catch(function() {
-                // Failsafe in case the API is down or rate-limited
+                // Fetch error fallback
                 githubContainer.innerHTML = '<p>Unable to load repositories.</p>';
             });
     }

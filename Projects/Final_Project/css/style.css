@@ -1,9 +1,8 @@
-/* Smooth scrolling for anchor links (e.g. clicking "Contact" on the homepage jumps down) */
 html {
     scroll-behavior: smooth;
 }
 
-/* Base variables. Change a color here and it updates everywhere automatically. */
+/* Base Variables */
 :root {
     --bg-primary: #f4f7f6;
     --bg-secondary: #ffffff;
@@ -14,7 +13,7 @@ html {
     --border-radius: 8px;
 }
 
-/* When the JS adds 'dark-mode' to the HTML tag, these variables override the defaults */
+/* Dark Mode Overrides */
 html.dark-mode {
     --bg-primary: #121212;
     --bg-secondary: #1e1e1e;
@@ -31,7 +30,6 @@ body {
     background-color: var(--bg-primary);
     margin: 0;
     padding: 0;
-    /* This makes the theme switch look smooth instead of snapping */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -52,9 +50,8 @@ a:hover {
     text-decoration: underline;
 }
 
-/* --- Header & Nav --- */
+/* Header & Nav */
 header {
-    /* Linear gradient darkens the background image so the white text is readable */
     background-image: linear-gradient(
         rgba(15, 23, 30, 0.90), 
         rgba(15, 23, 30, 0.85)
@@ -110,7 +107,7 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* --- Main Content --- */
+/* Main Content */
 main {
     max-width: 900px;
     margin: 40px auto;
@@ -133,10 +130,9 @@ section {
     border: 4px solid var(--highlight);
 }
 
-/* --- Grid Layouts --- */
+/* Grid Layouts */
 .gallery-container {
     display: grid; 
-    /* Auto-fit creates columns dynamically based on available width. No media query needed! */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     padding: 20px 0;
@@ -152,12 +148,11 @@ section {
 }
 
 .gallery-container img:hover {
-    /* Slight lift and scale effect on hover */
     transform: translateY(-5px) scale(1.03); 
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* --- Form --- */
+/* Form */
 #contact-form {
     display: flex;
     flex-direction: column;
@@ -196,8 +191,7 @@ footer {
     margin-top: 40px;
 }
 
-/* --- Responsive Media Queries --- */
-/* For tablets and larger */
+/* Media Queries */
 @media (min-width: 768px) {
     header {
         flex-direction: row;
@@ -212,7 +206,6 @@ footer {
     }
 }
 
-/* For mobile devices */
 @media (max-width: 600px) {
     nav ul {
         flex-direction: column;
@@ -227,11 +220,11 @@ footer {
     }
 }
 
-/* --- Lightbox Modal --- */
+/* Lightbox Modal */
 .lightbox {
     display: none;
-    position: fixed; /* Locks it to the screen */
-    z-index: 1000; /* Puts it over literally everything else */
+    position: fixed;
+    z-index: 1000;
     top: 0; left: 0;
     width: 100%; height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
@@ -239,7 +232,6 @@ footer {
     align-items: center;
 }
 
-/* Added by JS to show the modal */
 .lightbox.active {
     display: flex;
 }
@@ -265,7 +257,7 @@ footer {
     color: var(--highlight);
 }
 
-/* --- GitHub Cards & Skeletons --- */
+/* GitHub Cards */
 .github-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -315,7 +307,7 @@ html.dark-mode .repo-card {
     transition: fill 0.3s ease;
 }
 
-/* The loading placeholder box */
+/* Skeleton Loaders */
 .skeleton-card {
     background: var(--bg-secondary);
     border: 1px solid #ccc;
@@ -330,7 +322,7 @@ html.dark-mode .skeleton-card {
     background: #252525;
 }
 
-/* The "shimmer" effect sweeping across the loading box */
+/* Shimmer animation */
 .skeleton-card::after {
     content: "";
     position: absolute;
@@ -343,8 +335,7 @@ html.dark-mode .skeleton-card {
     100% { transform: translateX(100%); }
 }
 
-/* --- Iframe Container (ytShuffle) --- */
-/* The padding-top trick locks the iframe to a 16:9 ratio so it never breaks on mobile */
+/* Iframe Container */
 .iframe-container {
     position: relative;
     overflow: hidden;
