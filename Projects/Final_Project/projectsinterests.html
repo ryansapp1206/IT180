@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects & Interests | Ryan Sapp</title>
     <link rel="stylesheet" href="css/style.css">
-    
     <script>
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark-mode');
         }
     </script>
-    
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -25,7 +23,7 @@
                 <li><a href="projectsinterests.html">Projects</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><button id="theme-toggle">🌙 Dark Mode</button></li>
+                <li><button id="theme-toggle">Dark Mode</button></li>
             </ul>
         </nav>
     </header>
@@ -33,32 +31,26 @@
     <main>
         <section id="projects-and-skills">
             <h2>Recent Software Projects</h2>
-
             <h3>GitHub Repositories</h3>
             <p>Live feed of my most recently updated codebases:</p>
             <div id="github-repos" class="github-grid">
-                Loading repositories...
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
             </div>
-            
             <h3>ytShuffle.com</h3>
             <p>
-                I recently engineered and deployed <strong><a href="https://ytshuffle.com" target="_blank">ytShuffle.com</a></strong>, a web application that functions as a mathematically random playlist shuffler. To build this, I integrated the <strong>YouTube Data API v3</strong> and implemented secure user authentication via <strong>OAuth 2.0</strong> to bypass standard algorithm limitations. 
+                I recently engineered and deployed <strong><a href="https://ytshuffle.com" target="_blank">ytShuffle.com</a></strong> using the <strong>YouTube Data API v3</strong> and <strong>AWS Cloud Infrastructure</strong>.
             </p>
-            <p>
-                The infrastructure is entirely cloud-native, hosted utilizing <strong>AWS S3</strong> for storage, <strong>AWS CloudFront</strong> for global content delivery, and <strong>AWS Route 53</strong> for DNS management.
-            </p>
-
             <h3>Smart Calendar Integration</h3>
             <p>
-                Currently developing a smart-calendar system bridging the <strong>Google Calendar API</strong> with <strong>Amazon Alexa</strong> hardware to facilitate hands-free schedule management and deeper exploration of cross-device communication.
+                Currently developing a smart-calendar system bridging the <strong>Google Calendar API</strong> with <strong>Amazon Alexa</strong> hardware.
             </p>
         </section>
 
         <section id="hobbies">
             <h2>Advocacy & Hands-On Work</h2>
             <p>
-                Beyond software, I specialize in <strong>hardware troubleshooting</strong>, <strong>woodworking</strong>, and <strong>3D printing</strong>. I am also a strong advocate for the <strong>Right to Repair</strong> movement. I prefer to repair and troubleshoot hardware at the component level rather than discarding it. 
-                To see why combating planned obsolescence matters, check out <a href="https://www.ifixit.com/Right-to-Repair/Intro" target="_blank">iFixit's manifesto</a>.
+                Beyond software, I specialize in <strong>hardware troubleshooting</strong>, <strong>woodworking</strong>, and <strong>3D printing</strong>.
             </p>
             <p>Check out my <a href="gallery.html">Project Gallery</a> to see a few of my physical builds!</p>
         </section>

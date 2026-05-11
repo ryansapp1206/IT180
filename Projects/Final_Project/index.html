@@ -5,20 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Ryan Sapp Professional Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
-    
     <script>
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark-mode');
         }
     </script>
-    
     <script src="script.js" defer></script>
 </head>
 <body>
 
     <header>
         <h1 id="dynamic-greeting">Welcome to My Professional Portfolio</h1>
-        
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -26,10 +23,9 @@
                 <li><a href="projectsinterests.html">Projects</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><button id="theme-toggle">🌙 Dark Mode</button></li>
+                <li><button id="theme-toggle">Dark Mode</button></li>
             </ul>
         </nav>
-        
         <nav style="margin-top: 15px; font-size: 0.9rem;">
             <ul style="gap: 15px;">
                 <li><a href="#about-section">↓ Background</a></li>
@@ -53,42 +49,37 @@
         <section id="about-section">
             <h2>Background</h2>
             <p>
-                My interest in technology began with hardware and custom PC building, which naturally evolved into a deep focus on software development and backend infrastructure. As a transfer student, I am currently dedicated to developing a robust foundation in full-stack web development, API integration, and cloud architecture.
+                My interest in technology began with hardware and custom PC building, which naturally evolved into a deep focus on software development and backend infrastructure.
             </p>
             <p><em>For a full breakdown of my education and skills, view my <a href="about.html">Detailed About Page</a>.</em></p>
         </section>
 
         <section id="projects-section">
             <h2>Recent Software Projects</h2>
-            
             <h3>GitHub Repositories</h3>
             <p>Live feed of my most recently updated codebases:</p>
             <div id="github-repos" class="github-grid">
-                Loading repositories...
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
             </div>
-
             <h3>ytShuffle.com</h3>
-            <p>
-                Engineered and deployed <strong><a href="https://ytshuffle.com" target="_blank">ytShuffle.com</a></strong>, a web application functioning as a mathematically random playlist shuffler using the <strong>YouTube Data API v3</strong> and secure user authentication via <strong>OAuth 2.0</strong>. Hosted utilizing <strong>AWS S3</strong>, <strong>AWS CloudFront</strong>, and <strong>AWS Route 53</strong>.
-            </p>
-            <p><em>For more hardware builds and personal advocacy work, view my <a href="projectsinterests.html">Projects & Interests Page</a>.</em></p>
+            <p>Engineered and deployed <strong><a href="https://ytshuffle.com" target="_blank">ytShuffle.com</a></strong> using the <strong>YouTube Data API v3</strong> and <strong>AWS Cloud Infrastructure</strong>.</p>
         </section>
 
         <section id="contact-section">
             <h2>Send a Professional Inquiry</h2>
-            <p>Interested in collaborating or reviewing my resume in further detail? Please reach out below.</p>
-            <form id="contact-form" action="#" method="post">
+            <form id="contact-form" action="mailto:ryan.sapp1206@gmail.com" method="post">
                 <div>
                     <label for="user-name">Full Name:</label>
-                    <input type="text" id="user-name" name="user-name" placeholder="John Doe" required>
+                    <input type="text" id="user-name" placeholder="John Doe" required>
                 </div>
                 <div>
                     <label for="user-email">Email Address:</label>
-                    <input type="email" id="user-email" name="user-email" placeholder="john@example.com" required>
+                    <input type="email" id="user-email" placeholder="john@example.com" required>
                 </div>
                 <div>
                     <label for="user-message">Your Message:</label>
-                    <textarea id="user-message" name="user-message" rows="4" placeholder="How can I help you?" required></textarea>
+                    <textarea id="user-message" rows="4" placeholder="How can I help you?" required></textarea>
                 </div>
                 <input type="submit" value="Send Message">
             </form>
@@ -98,6 +89,8 @@
     <footer>
         <p>&copy; 2026 Ryan Sapp</p>
     </footer>
+
+
 
 </body>
 </html>

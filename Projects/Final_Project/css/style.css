@@ -213,14 +213,7 @@ footer {
     }
 }
 
-/* --- Feature: Scroll-Spy Active Nav --- */
-nav ul li a.active {
-    color: var(--highlight);
-    border-bottom: 2px solid var(--highlight);
-    padding-bottom: 2px;
-}
-
-/* --- Feature: Gallery Lightbox Modal --- */
+/* --- Gallery --- */
 .lightbox {
     display: none;
     position: fixed;
@@ -253,7 +246,7 @@ nav ul li a.active {
     color: var(--highlight);
 }
 
-/* --- Feature: GitHub Repo Cards --- */
+/* --- GitHub Repo Cards --- */
 .github-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -277,3 +270,52 @@ html.dark-mode .repo-card {
 .repo-card h4 { margin-top: 0; color: var(--highlight); margin-bottom: 5px; }
 .repo-card a { text-decoration: none; display: block; height: 100%; }
 .repo-card p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
+
+/* --- SVG --- */
+.skills-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.tech-icon {
+    width: 24px !important;
+    height: 24px !important;
+    flex-shrink: 0;
+    fill: var(--highlight);
+    transition: fill 0.3s ease;
+}
+
+/* --- Skeleton Loader --- */
+.skeleton-card {
+    background: var(--bg-secondary);
+    border: 1px solid #ccc;
+    height: 100px;
+    border-radius: var(--border-radius);
+    position: relative;
+    overflow: hidden;
+}
+
+html.dark-mode .skeleton-card {
+    border-color: #333;
+    background: #252525;
+}
+
+.skeleton-card::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    100% { transform: translateX(100%); }
+}
