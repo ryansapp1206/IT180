@@ -1,7 +1,9 @@
+/* Smooth scrolling for anchor links (e.g. clicking "Contact" on the homepage jumps down) */
 html {
     scroll-behavior: smooth;
 }
 
+/* Base variables. Change a color here and it updates everywhere automatically. */
 :root {
     --bg-primary: #f4f7f6;
     --bg-secondary: #ffffff;
@@ -12,6 +14,7 @@ html {
     --border-radius: 8px;
 }
 
+/* When the JS adds 'dark-mode' to the HTML tag, these variables override the defaults */
 html.dark-mode {
     --bg-primary: #121212;
     --bg-secondary: #1e1e1e;
@@ -28,6 +31,7 @@ body {
     background-color: var(--bg-primary);
     margin: 0;
     padding: 0;
+    /* This makes the theme switch look smooth instead of snapping */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -48,7 +52,9 @@ a:hover {
     text-decoration: underline;
 }
 
+/* --- Header & Nav --- */
 header {
+    /* Linear gradient darkens the background image so the white text is readable */
     background-image: linear-gradient(
         rgba(15, 23, 30, 0.90), 
         rgba(15, 23, 30, 0.85)
@@ -104,6 +110,7 @@ nav ul li a {
     text-decoration: none;
 }
 
+/* --- Main Content --- */
 main {
     max-width: 900px;
     margin: 40px auto;
@@ -126,8 +133,10 @@ section {
     border: 4px solid var(--highlight);
 }
 
+/* --- Grid Layouts --- */
 .gallery-container {
     display: grid; 
+    /* Auto-fit creates columns dynamically based on available width. No media query needed! */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     padding: 20px 0;
@@ -143,10 +152,12 @@ section {
 }
 
 .gallery-container img:hover {
+    /* Slight lift and scale effect on hover */
     transform: translateY(-5px) scale(1.03); 
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+/* --- Form --- */
 #contact-form {
     display: flex;
     flex-direction: column;
@@ -185,6 +196,8 @@ footer {
     margin-top: 40px;
 }
 
+/* --- Responsive Media Queries --- */
+/* For tablets and larger */
 @media (min-width: 768px) {
     header {
         flex-direction: row;
@@ -199,6 +212,7 @@ footer {
     }
 }
 
+/* For mobile devices */
 @media (max-width: 600px) {
     nav ul {
         flex-direction: column;
@@ -213,26 +227,30 @@ footer {
     }
 }
 
-/* --- Gallery --- */
+/* --- Lightbox Modal --- */
 .lightbox {
     display: none;
-    position: fixed;
-    z-index: 1000;
+    position: fixed; /* Locks it to the screen */
+    z-index: 1000; /* Puts it over literally everything else */
     top: 0; left: 0;
     width: 100%; height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
     justify-content: center;
     align-items: center;
 }
+
+/* Added by JS to show the modal */
 .lightbox.active {
     display: flex;
 }
+
 .lightbox img {
     max-width: 90%;
     max-height: 90%;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
+
 .lightbox-close {
     position: absolute;
     top: 20px; right: 30px;
@@ -242,17 +260,19 @@ footer {
     cursor: pointer;
     transition: color 0.3s ease;
 }
+
 .lightbox-close:hover {
     color: var(--highlight);
 }
 
-/* --- GitHub Repo Cards --- */
+/* --- GitHub Cards & Skeletons --- */
 .github-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
     margin-top: 15px;
 }
+
 .repo-card {
     background: var(--bg-primary);
     border: 1px solid #ccc;
@@ -260,18 +280,20 @@ footer {
     border-radius: var(--border-radius);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 html.dark-mode .repo-card {
     border-color: #333;
 }
+
 .repo-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+
 .repo-card h4 { margin-top: 0; color: var(--highlight); margin-bottom: 5px; }
 .repo-card a { text-decoration: none; display: block; height: 100%; }
 .repo-card p { font-size: 0.9rem; color: var(--text-secondary); margin: 0; }
 
-/* --- SVG --- */
 .skills-list {
     list-style: none;
     padding: 0;
@@ -293,7 +315,7 @@ html.dark-mode .repo-card {
     transition: fill 0.3s ease;
 }
 
-/* --- Skeleton Loader --- */
+/* The loading placeholder box */
 .skeleton-card {
     background: var(--bg-secondary);
     border: 1px solid #ccc;
@@ -308,6 +330,7 @@ html.dark-mode .skeleton-card {
     background: #252525;
 }
 
+/* The "shimmer" effect sweeping across the loading box */
 .skeleton-card::after {
     content: "";
     position: absolute;
@@ -318,4 +341,23 @@ html.dark-mode .skeleton-card {
 
 @keyframes shimmer {
     100% { transform: translateX(100%); }
+}
+
+/* --- Iframe Container (ytShuffle) --- */
+/* The padding-top trick locks the iframe to a 16:9 ratio so it never breaks on mobile */
+.iframe-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
 }

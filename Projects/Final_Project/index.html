@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Ryan Sapp Professional Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
+    
     <script>
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark-mode');
         }
     </script>
-    <script src="script.js" defer></script>
+    <script src="javascript/script.js" defer></script>
 </head>
 <body>
-
     <header>
         <h1 id="dynamic-greeting">Welcome to My Professional Portfolio</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projectsinterests.html">Projects</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="html/about.html">About</a></li>
+                <li><a href="html/projectsinterests.html">Projects</a></li>
+                <li><a href="html/gallery.html">Gallery</a></li>
+                <li><a href="html/contact.html">Contact</a></li>
                 <li><button id="theme-toggle">Dark Mode</button></li>
             </ul>
         </nav>
@@ -34,7 +34,6 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <section id="ryan-summary">
             <h2>Professional Summary</h2>
@@ -45,13 +44,13 @@
                 systems architecture projects, and technical proficiencies.
             </p>
         </section>
-
+        
         <section id="about-section">
             <h2>Background</h2>
             <p>
                 My interest in technology began with hardware and custom PC building, which naturally evolved into a deep focus on software development and backend infrastructure.
             </p>
-            <p><em>For a full breakdown of my education and skills, view my <a href="about.html">Detailed About Page</a>.</em></p>
+            <p><em>For a full breakdown of my education and skills, view my <a href="html/about.html">Detailed About Page</a>.</em></p>
         </section>
 
         <section id="projects-section">
@@ -62,6 +61,7 @@
                 <div class="skeleton-card"></div>
                 <div class="skeleton-card"></div>
             </div>
+            
             <h3>ytShuffle.com</h3>
             <p>Engineered and deployed <strong><a href="https://ytshuffle.com" target="_blank">ytShuffle.com</a></strong> using the <strong>YouTube Data API v3</strong> and <strong>AWS Cloud Infrastructure</strong>.</p>
         </section>
@@ -85,12 +85,8 @@
             </form>
         </section>
     </main>
-
     <footer>
         <p>&copy; 2026 Ryan Sapp</p>
     </footer>
-
-
-
 </body>
 </html>

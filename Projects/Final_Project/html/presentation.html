@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT180 Final Presentation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; 
+        }
+        .presentation-container {
+            width: 1600px;
+            height: 900px;
+            background-color: #1e1e1e;
+            border-radius: 16px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.9);
+            position: relative;
+            border: 1px solid #333;
+            transform-origin: center center;
+        }
+        .slide {
+            display: none;
+            padding: 60px 120px 40px 120px;
+            height: calc(100% - 120px);
+            box-sizing: border-box;
+            animation: fadeIn 0.4s ease-out;
+            overflow-y: auto;
+        }
+        .slide.active {
+            display: block;
+        }
+        h1 { color: #3498db; font-size: 5.5rem; text-align: center; margin-top: 12%; margin-bottom: 20px; }
+        h2 { color: #3498db; font-size: 3.8rem; border-bottom: 4px solid #333; padding-bottom: 20px; margin-top: 0; margin-bottom: 40px; }
+        h3 { color: #e0e0e0; font-size: 2.5rem; margin-bottom: 20px; margin-top: 40px; }
+        p, li { font-size: 1.8rem; line-height: 1.7; color: #cccccc; }
+        ul { padding-left: 50px; }
+        li { margin-bottom: 25px; }
+        .subtitle { text-align: center; color: #888; font-size: 2.2rem; line-height: 1.5; }
+        
+        pre[class*="language-"] {
+            border-radius: 12px;
+            border-left: 8px solid #3498db;
+            max-height: 400px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+            margin-top: 40px; margin-bottom: 20px;
+            padding: 30px !important;
+            font-size: 1.6rem !important; 
+            line-height: 1.4 !important;
+        }
+        
+        .controls {
+            position: absolute;
+            bottom: 40px; width: 100%;
+            display: flex; justify-content: center; gap: 30px;
+        }
+        button {
+            background-color: transparent; color: #3498db; border: 3px solid #3498db;
+            padding: 15px 40px; font-size: 1.5rem; font-weight: bold;
+            border-radius: 8px; cursor: pointer; transition: all 0.2s ease;
+        }
+        button:hover { background-color: #3498db; color: #ffffff; }
+        .slide-counter {
+            position: absolute; bottom: 50px; right: 60px; color: #666; font-size: 1.6rem; font-weight: bold;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+<div class="presentation-container" id="presentation">
+    
+    <div class="slide active">
+        <h1>Professional Portfolio</h1>
+        <p class="subtitle">IT180 Final Project Presentation<br><br>Presented by Ryan Sapp</p>
+    </div>
+
+    <div class="slide">
+        <h2>Project Overview</h2>
+        <ul>
+            <li><strong>The Goal:</strong> Transform a static, multi-page midterm assignment into a dynamic, responsive digital resume capable of holding real-world data.</li>
+            <li><strong>The Architecture:</strong> Built entirely from scratch using semantic HTML5, modern CSS, and Vanilla JavaScript.</li>
+            <li><strong>The Strategy:</strong> Designed an "Executive Summary" homepage for quick scanning, with detailed content structured across a modular, multi-page architecture.</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>Design & Layout</h2>
+        <ul>
+            <li><strong>Colors:</strong> High-contrast Slate and Blue palette. I used CSS Variables (`:root`) to maintain strict color consistency across all pages.</li>
+            <li><strong>Fonts:</strong> Segoe UI and standard sans-serif fallbacks for a clean, tech-focused aesthetic that prioritizes readability.</li>
+            <li><strong>Spacing & UX:</strong> Generous line heights (1.6) and padding ensure the site doesn't feel cluttered. Important elements have hover states to provide immediate user feedback.</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>Navigation Structure</h2>
+        <ul>
+            <li><strong>Multi-Page Logic:</strong> The `index.html` sits at the root, while secondary pages (About, Projects, Gallery, Contact) are organized cleanly in an `/html` folder.</li>
+            <li><strong>In-Page Navigation:</strong> The homepage features a secondary navigation menu utilizing smooth-scrolling anchor links (`href="#about-section"`) to jump to specific sections.</li>
+            <li><strong>Accessibility:</strong> Semantic heading hierarchy (H1 -> H2 -> H3) allows screen readers to navigate the content logically.</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>CSS Grid & Flexbox</h2>
+        <p>I utilized both CSS layout modules based on their specific strengths:</p>
+        <ul>
+            <li><strong>Flexbox:</strong> Used in the header and navigation bars. It perfectly handles horizontal alignment, spacing out the links evenly, and stacking them cleanly on mobile screens.</li>
+            <li><strong>CSS Grid:</strong> Used for the hardware image gallery and GitHub repository cards. By using `repeat(auto-fit, minmax(...))`, the grid automatically calculates how many columns can fit on the screen without needing complex media queries.</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>JavaScript Features</h2>
+        <p>I implemented several interactive modules to elevate the site from a static document to an application:</p>
+        <ul>
+            <li><strong>Theme Toggle:</strong> Allows users to switch between light and dark modes, saving their preference to `localStorage`.</li>
+            <li><strong>Dynamic Greeting:</strong> Uses the `Date()` object to determine the time of day and updates the homepage H1 appropriately (Morning/Afternoon/Evening).</li>
+            <li><strong>Form Validation:</strong> Intercepts contact form submissions to verify standard email formatting before processing.</li>
+            <li><strong>Gallery Lightbox:</strong> Generates a full-screen image overlay dynamically using the DOM `createElement` method.</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h2>Code Spotlight: State Persistence</h2>
+        <p>This snippet handles the logic for toggling the dark mode class and saving the user's preference locally so it persists across page loads.</p>
+        <pre><code class="language-javascript">
+// Listen for clicks, toggle the class, and save the choice to local storage
+themeBtn.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    updateButtonLabel(isDark);
+});
+        </code></pre>
+    </div>
+
+    <div class="slide">
+        <h2>Key Feature: GitHub API Integration</h2>
+        <p>To keep the portfolio relevant without manual updates, I used the Fetch API to pull my 4 most recently updated repositories directly from GitHub, replacing CSS skeleton loaders once the data arrives.</p>
+        <pre><code class="language-javascript">
+const username = 'ryansapp1206';
+// Grab the 4 most recently updated repos
+const url = `https://api.github.com/users/${username}/repos?sort=updated&per_page=4`;
+
+fetch(url)
+    .then(res => res.json()) // Parse the raw response into JSON
+    .then(data => {
+        githubContainer.innerHTML = ''; // Wipe out the skeleton loaders
+        </code></pre>
+    </div>
+
+    <div class="slide">
+        <h2>Challenges & Solutions</h2>
+        <h3>The Challenge: FOUC (Flash of Unstyled Content)</h3>
+        <p>When navigating between pages, the site would briefly flash the default light theme for a split second before the JavaScript loaded and applied the dark theme.</p>
+        <h3>The Solution</h3>
+        <p>I extracted the `localStorage` check from my main `script.js` file and placed it in a small, blocking &lt;script&gt; tag directly inside the HTML &lt;head&gt;. This forces the browser to read the theme preference and apply the dark-mode class *before* it paints the screen.</p>
+    </div>
+
+    <div class="slide">
+        <h2>What I Learned & Next Steps</h2>
+        <ul>
+            <li><strong>Modular Code:</strong> Refactoring my JavaScript into specific, encapsulated functions (like `initializeThemeToggle()` and `fetchGitHubRepositories()`) made the code significantly easier to debug and read.</li>
+            <li><strong>Asynchronous Data:</strong> Learning to handle API responses and build DOM elements dynamically was a major step up from static coding.</li>
+            <li><strong>Future Improvements:</strong> I plan to expand the portfolio by integrating the Google Calendar and Amazon Alexa APIs for a smart-calendar project I am currently developing.</li>
+        </ul>
+    </div>
+
+    <div class="slide">
+        <h1 style="margin-top: 15%;">Live Demonstration</h1>
+        <p class="subtitle" style="margin-top: 30px;">Transitioning to the live site demo.</p>
+    </div>
+    
+    <div class="controls">
+        <button onclick="prevSlide()">&#8592; Previous</button>
+        <button onclick="nextSlide()">Next &#8594;</button>
+    </div>
+    <div class="slide-counter" id="counter">1 / 11</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script>
+    function scalePresentation() {
+        const presentation = document.getElementById('presentation');
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const targetWidth = 1600;
+        const targetHeight = 900;
+        const scaleX = windowWidth / targetWidth;
+        const scaleY = windowHeight / targetHeight;
+        const scale = Math.min(scaleX, scaleY) * 0.95; 
+        presentation.style.transform = `scale(${scale})`;
+    }
+    
+    window.addEventListener('resize', scalePresentation);
+    scalePresentation();
+    
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.getElementById('counter');
+    
+    function updateSlides() {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[currentSlide].classList.add('active');
+        counter.innerText = `${currentSlide + 1} / ${slides.length}`;
+    }
+    
+    function nextSlide() {
+        if (currentSlide < slides.length - 1) {
+            currentSlide++;
+            updateSlides();
+        }
+    }
+    
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+            updateSlides();
+        }
+    }
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+            nextSlide();
+        } else if (e.key === 'ArrowLeft') {
+            prevSlide();
+        }
+    });
+    updateSlides();
+</script>
+</body>
+</html>
